@@ -173,7 +173,7 @@ void CsssApp::OnAppAbout()
 
 void CAboutDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: Add your message handler code here and/or call default
+
 
 	CDialogEx::OnLButtonDown(nFlags, point);
 }
