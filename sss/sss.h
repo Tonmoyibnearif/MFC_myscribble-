@@ -19,6 +19,8 @@ class CsssApp : public CWinApp
 public:
 	CsssApp() noexcept;
 
+	
+
 
 // Overrides
 public:

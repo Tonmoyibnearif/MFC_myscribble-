@@ -14,6 +14,7 @@ protected: // create from serialization only
 // Attributes
 public:
 	CsssDoc* GetDocument() const;
+	CPoint startpt, endpt;
 
 // Operations
 public:
@@ -37,6 +38,11 @@ protected:
 // Generated message map functions
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+//	afx_msg void OnMove(int x, int y);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // debug version in sssView.cpp

@@ -23,13 +23,18 @@
 IMPLEMENT_DYNCREATE(CsssView, CView)
 
 BEGIN_MESSAGE_MAP(CsssView, CView)
+	ON_WM_LBUTTONUP()
+	ON_WM_LBUTTONDOWN()
+//	ON_WM_MOVE()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CsssView construction/destruction
 
 CsssView::CsssView() noexcept
 {
-	// TODO: add construction code here
+	startpt = -1;
+	endpt = -1;
 
 }
 
@@ -80,3 +85,55 @@ CsssDoc* CsssView::GetDocument() const // non-debug version is inline
 
 
 // CsssView message handlers
+
+
+void CsssView::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	startpt = -1;
+
+	CView::OnLButtonUp(nFlags, point);
+}
+
+
+void CsssView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	startpt.x = point.x;
+
+	startpt.y = point.y;
+
+	CView::OnLButtonDown(nFlags, point);
+}
+
+
+//void CsssView::OnMove(int x, int y)
+//{
+//	CView::OnMove(x, y);
+//
+//	// TODO: Add your message handler code here
+//}
+
+
+void CsssView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	CClientDC dc(this);
+
+	endpt.x = point.x;
+
+	endpt.y = point.y;
+
+	if (startpt.x != -1)
+
+	{
+
+		dc.MoveTo(startpt.x, startpt.y);
+
+		dc.LineTo(endpt.x, endpt.y);
+
+		startpt.x = endpt.x;
+
+		startpt.y = endpt.y;
+
+	}
+
+	CView::OnMouseMove(nFlags, point);
+}

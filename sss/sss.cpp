@@ -141,6 +141,7 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+//	afx_msg UINT OnMenuDrag(UINT nPos, CMenu* pMenu);
 };
 
 CAboutDlg::CAboutDlg() noexcept : CDialogEx(IDD_ABOUTBOX)
@@ -153,9 +154,8 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
-	ON_WM_LBUTTONDOWN()
-	ON_WM_MOUSEMOVE()
-	ON_WM_LBUTTONUP()
+	
+//	ON_WM_MENUDRAG()
 END_MESSAGE_MAP()
 
 // App command to run the dialog
@@ -171,25 +171,13 @@ void CsssApp::OnAppAbout()
 
 
 
-void CAboutDlg::OnLButtonDown(UINT nFlags, CPoint point)
-{
 
 
-	CDialogEx::OnLButtonDown(nFlags, point);
-}
-
-
-void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
-{
-	// TODO: Add your message handler code here and/or call default
-
-	CDialogEx::OnMouseMove(nFlags, point);
-}
-
-
-void CAboutDlg::OnLButtonUp(UINT nFlags, CPoint point)
-{
-	// TODO: Add your message handler code here and/or call default
-
-	CDialogEx::OnLButtonUp(nFlags, point);
-}
+//UINT CAboutDlg::OnMenuDrag(UINT nPos, CMenu* pMenu)
+//{
+//	// This feature requires Windows 2000 or greater.
+//	// The symbols _WIN32_WINNT and WINVER must be >= 0x0500.
+//	// TODO: Add your message handler code here and/or call default
+//
+//	return CDialogEx::OnMenuDrag(nPos, pMenu);
+//}
